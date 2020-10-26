@@ -12,22 +12,9 @@ export class MovieListComponent implements OnInit {
   movies: Movie[] = [];
 
   ngOnInit(): void {
-    this.movies.push(new Movie(1, 'Shreck 1', './assets/Movie-Poster-Universal.png'));
-    this.movies.push(new Movie(2, 'Die Hard', './assets/Movie-Poster-Universal.png'));
-    this.movies.push(new Movie(3, 'Eagle Two - Przez Pustynię Australii', './assets/Movie-Poster-Universal.png'));
+    this.movieService.getMovies().subscribe({
+      next: (movies) => this.movies = movies,
+      error: () => alert('Nie udało się pobrać filmów')
+    })
   }
-
-  loadListOfMovies(): void {
-    // this.movieService.getMoviesFromDb()
-  }
-
-  // loadMovies(): void{
-  //   this.isLoading = true;
-  //   this.movieService.produceMovies()
-  //   .subscribe({
-  //     next: (movie) => this.movies.push(movie),
-  //     complete: () => this.isLoading = false
-  //   });
-  // }
-
 }

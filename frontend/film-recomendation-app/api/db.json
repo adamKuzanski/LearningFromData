@@ -1,0 +1,28 @@
+{
+    "movies": [
+        {
+            "id": 1,
+            "title": "Eagle Two - przez pustynię Australii"
+        },
+        {
+            "id": 2,
+            "title": "Szklanką po łapkach"
+        },
+        {
+            "id": 3,
+            "title": "Naga Broń"
+        },
+        {
+            "id": 4,
+            "title": "Król lew - reaktywacja"
+        },
+        {
+            "id": 5,
+            "title": "O zaletach studiowania na Politechnice Łódzkiej"
+        },
+        {
+            "id": 6,
+            "title": "O tym czy warto grać w gry video"
+        }
+    ]
+}
