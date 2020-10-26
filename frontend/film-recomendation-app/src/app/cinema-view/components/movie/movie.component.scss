@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    background-color: yellow;
+
+    &:hover {
+        background-color: red;
+    }
+}
+
+img {
+    max-width: 100px;
+    align-self: center;
+}
+
+.title{
+    background-color: blue;
+}
