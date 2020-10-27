@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CinemaViewModule } from './cinema-view/cinema-view.module';
 import { A2sCommModule } from 'a2s-comm';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { A2sCommModule } from 'a2s-comm';
     BrowserModule,
     AppRoutingModule,
     CinemaViewModule,
-    A2sCommModule
+    A2sCommModule,
+    HttpClientModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

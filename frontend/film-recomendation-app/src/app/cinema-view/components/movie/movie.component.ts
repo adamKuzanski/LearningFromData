@@ -15,8 +15,4 @@ export class MovieComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  // to do - to powinno być w liście hangarów
-  // tutaj tylko jak wyświetlać jeden film
-
 }

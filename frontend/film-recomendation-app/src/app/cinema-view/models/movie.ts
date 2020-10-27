@@ -1,11 +1,15 @@
-export class Movie {
-    id: number;
-    title: string;
-    imageUrl: string;
+import { MovieAttrs } from './movieAttrs';
 
-    constructor(id: number, title: string, imageUrl: string = './assets/Movie-Poster-Universal.png') {
-        this.id = id;
-        this.title = title;
-        this.imageUrl = imageUrl;
+export class Movie {
+
+    constructor(attrs: Partial<MovieAttrs> = {}) {
+        this.id = attrs.id;
+        this.title = attrs.title;
+        this.imageUrl = attrs.imgUrl || Movie.defaultImageUrl;
     }
+
+    public static defaultImageUrl = `/assets/Movie-Poster-Universal.png`;
+    public id: number;
+    public title: string;
+    public imageUrl: string;
 }
