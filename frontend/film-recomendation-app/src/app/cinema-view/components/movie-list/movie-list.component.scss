@@ -1,0 +1,40 @@
+.form-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    // background-color: yellow;
+
+    &:hover {
+        background-color:#F8F7DE;
+    }
+
+    border-radius: 15px;
+    padding: 10px 20px;
+    margin: 5px;
+    border: 1px solid #D29D30;
+}
+
+.movie-container {
+    width: 75%;
+}
+
+.checkbox-container {
+    width: 25%;
+    align-self: center;
+}
+
+.btn-space {
+    display: flex;
+    // width: 100%;
+    justify-content: center;
+}
+
+.labels {
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    width: 100%;
+}
