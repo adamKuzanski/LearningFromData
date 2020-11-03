@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn } from '@angular/forms';
+import { Feedback } from '../../models/feadback';
 import { Movie } from '../../models/movie';
 import { MovieService } from '../../services/movie.service';
 
@@ -46,8 +47,21 @@ export class MovieListComponent implements OnInit {
     this.arrayMovies.forEach(() => this.demoArray.push(this.formBuilder.control(false)) );
   }
 
-  public submitForm(formValue) {
-    console.log(formValue);
+  public submitForm(answersArray) {
+
+    const feadbackArray: Feedback[] = [];
+    for (let i = 0; i < answersArray.length; i++){
+      if (typeof answersArray[i] === 'number') {
+        const movieDbId = this.arrayMovies[i].id;
+        const movieRating = answersArray[i];
+        const feadback = new Feedback(movieDbId, movieRating);
+        feadbackArray.push(feadback);
+      }
+    }
+
+    console.log(feadbackArray);
+    // console.log(JSON.stringify(feadbackArray));
   }
+
 
 }

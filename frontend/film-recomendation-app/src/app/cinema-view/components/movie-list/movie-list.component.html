@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="submitForm(form.value)">
+<form [formGroup]="form" (ngSubmit)="submitForm(form.value.demoArray)">
     <div formArrayName="demoArray" *ngFor="let movie of arrayMovies; let i = index"  class="form-container">
 
         <div class="movie-container">
