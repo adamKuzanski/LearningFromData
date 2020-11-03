@@ -2,11 +2,6 @@
     display: flex;
     align-items: center;
     justify-content: left;
-    background-color: yellow;
-
-    &:hover {
-        background-color: red;
-    }
 }
 
 img {
@@ -15,5 +10,7 @@ img {
 }
 
 .title{
-    background-color: blue;
+    padding-left: 15px;
+    align-self: center;
+    vertical-align: middle;
 }

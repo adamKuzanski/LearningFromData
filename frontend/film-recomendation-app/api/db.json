@@ -2,27 +2,51 @@
     "movies": [
         {
             "id": 1,
-            "title": "Eagle Two - przez pustynię Australii"
+            "title": "12 Angry Men"
         },
         {
             "id": 2,
-            "title": "Szklanką po łapkach"
+            "title": "2001: A Space Odyssey"
         },
         {
             "id": 3,
-            "title": "Naga Broń"
+            "title": "3 Idiots"
         },
         {
             "id": 4,
-            "title": "Król lew - reaktywacja"
+            "title": "A Beautiful Mind"
         },
         {
             "id": 5,
-            "title": "O zaletach studiowania na Politechnice Łódzkiej"
+            "title": "A Clockwork Orange"
         },
         {
             "id": 6,
-            "title": "O tym czy warto grać w gry video"
+            "title": "A Streetcar Named Desire"
+        },
+        {
+            "id": 7,
+            "title": "Alien"
+        },
+        {
+            "id": 8,
+            "title": "All About Eve"
+        },
+        {
+            "id": 9,
+            "title": "All Quiet on the Western Front"
+        },
+        {
+            "id": 10,
+            "title": "Amadeus"
+        },
+        {
+            "id": 11,
+            "title": "Trainspotting"
+        },
+        {
+            "id": 12,
+            "title": "Trois couleurs: Rouge"
         }
     ]
 }
