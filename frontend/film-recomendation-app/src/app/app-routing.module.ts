@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  // {path: 'recommendation', loadChildren: () => import(`./cinema-view/cinema-view.module`).then(m => m.CinemaViewModule)},
   {path: 'recommendation', loadChildren: 'src/app/cinema-view/cinema-view.module#CinemaViewModule'},
   {path: '', redirectTo: 'recommendation', pathMatch: 'full'}
 ];
