@@ -20,7 +20,7 @@ variables:
   environmentName: 'PythonBackendRecommendationSystem'
 
   # Project root folder. Point to the folder containing manage.py file.
-  projectRoot: $(System.DefaultWorkingDirectory)\backend
+  projectRoot: $(System.DefaultWorkingDirectory)/backend
   
   # Python version: 3.7
   pythonVersion: '3.7'
