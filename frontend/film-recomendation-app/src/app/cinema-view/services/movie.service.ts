@@ -15,7 +15,7 @@ export class MovieService implements OnDestroy {
   }
 
   public getMovies(): Observable<Movie[]> {
-    return this._http.get<MovieAttrs[]>(`${environment.apiUrl}/movies`).pipe(
+    return this._http.get<MovieAttrs[]>(`${environment.apiUrl}/movies/allMovies`).pipe(
       map(
         (data) => data.map((movieAttrs) => new Movie(movieAttrs))
       )
