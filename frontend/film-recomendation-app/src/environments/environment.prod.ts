@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:9020'
+  apiUrl: 'https://dotnetmoviesbackend.azurewebsites.net/api'
 };
