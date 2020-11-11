@@ -30,8 +30,8 @@ export class MovieListComponent implements OnInit {
       next: (movies) => {
         this.arrayMovies = movies;
         this.addMovies(movies);
-      } //,
-      // error: () => alert('Nie udało się pobrać filmów')
+      },
+      error: () => alert('Nie udało się pobrać filmów')
     });
   }
 
