@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './shared/helpers/auth.guard';
 
 const routes: Routes = [
-  {path: 'recommendation', loadChildren: 'src/app/cinema-view/cinema-view.module#CinemaViewModule'},
-  {path: '', redirectTo: 'recommendation', pathMatch: 'full'}
+  {path: '', redirectTo: 'authentication', pathMatch: 'full', canActivate: [AuthGuard]  },
+  // {path: 'login', loadChildren: () => import(`./shared/shared.module`).then(m => m.SharedModule)},
+  {path: 'authentication', loadChildren: 'src/app/shared/shared.module#SharedModule'},
+  {path: 'recommendation', loadChildren: 'src/app/cinema-view/cinema-view.module#CinemaViewModule', canActivate: [AuthGuard] },
 ];
 
 @NgModule({
