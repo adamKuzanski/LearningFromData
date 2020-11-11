@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://dotnetmoviesbackend.azurewebsites.net/api'
+  apiUrl: 'https://localhost:44379/api'
 };
 
 /*
