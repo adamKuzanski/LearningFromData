@@ -12,14 +12,14 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public getAll(): Observable<User[]> {
-    return this.http.get<User[]>(`${environment.apiUrl}/users`);
+    return this.http.get<User[]>(`${environment.apiUrl}/user`);
   }
 
   public register(user: User): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/users/register`, user);
+    return this.http.post(`${environment.apiUrl}/user/register`, user);
   }
 
   public delete(id: number): Observable<any> {
-    return this.http.delete(`${environment.apiUrl}/users/${id}`);
+    return this.http.delete(`${environment.apiUrl}/user/${id}`);
   }
 }
