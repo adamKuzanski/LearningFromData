@@ -1,8 +1,0 @@
-{
-    "appService.zipIgnorePattern": [
-        "node_modules{,/**}",
-        ".vscode{,/**}"
-    ],
-    "appService.deploySubpath": ".",
-    "appService.defaultWebAppToDeploy": "/subscriptions/80372751-faec-4330-bf17-c5537985fd4a/resourceGroups/LearningFromData/providers/Microsoft.Web/sites/MovieRecomendationSystem"
-}

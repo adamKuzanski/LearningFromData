@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MovieRecommendationBackend.Interfaces;
 using MovieRecommendationBackend.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,7 +14,15 @@ namespace MovieRecommendationBackend.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        // GET: api/<UsersController>
+        private IUserRepository userRepository;
+       
+        public UserController(IUserRepository _userRepository)
+        {
+            this.userRepository = _userRepository;
+        }
+
+
+        // GET: api/user/all
         [HttpGet]
         public IEnumerable<string> Get()
         {
@@ -31,22 +40,38 @@ namespace MovieRecommendationBackend.Controllers
         [HttpPost("register")] 
         public async Task<IActionResult> PostRegister([FromBody] RegisterUser registerUser)
         {
-            return new OkObjectResult(registerUser);
+            var newUser = new AuthenticationUser();
+            newUser.Firstname = registerUser.Firstname;
+            newUser.Lastname = registerUser.Lastname;
+            newUser.Username = registerUser.Username;
+            newUser.Password = registerUser.Password;
+            newUser.Token = "fake-jwt-token";
+
+            var result = this.userRepository.AddNewUser(newUser);
+
+            if(result.Exception != null)
+            {
+                return new BadRequestObjectResult(result.Exception.InnerExceptions);
+            }
+
+            return new OkObjectResult(result);
         }
 
         // POST api/user/register
         [HttpPost("authenticate")] 
         public async Task<IActionResult> PostAuthenticate([FromBody] CredentialsUser credentialsUser)
         {
-            var userSim = new AuthenticationUser();
-            userSim.Firstname = "Adam";
-            userSim.Lastname = "Kuzanski";
-            userSim.Username = credentialsUser.Username;
-            userSim.Password = credentialsUser.Password;
-            userSim.ID = 1;
-            userSim.Token = "fake-jwt-token";
+            var result = this.userRepository.LoginUser(credentialsUser);
 
-            return new OkObjectResult(userSim);
+            if (result != null)
+            {
+                return new OkObjectResult(result);
+            }
+            else
+            {
+                return new BadRequestObjectResult("User or password not found in database");
+            }
+
         }
 
         // PUT api/<UsersController>/5
