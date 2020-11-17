@@ -82,7 +82,7 @@ export class MovieListComponent implements OnInit, OnChanges {
     this.movieService.postUserRatings(finalFeedback)
     .subscribe(
         data => {
-          console.log(data)
+          // console.log(data)
           this.isSubmited = true;
         },
         error => {

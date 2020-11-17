@@ -26,7 +26,7 @@ export class MovieService implements OnDestroy {
   public postUserRatings(userFinalFeedback: UserMovieRating): Observable<any> {
     return this._http.post<any>(`${environment.apiUrl}/movies/rateMovies`, userFinalFeedback)
     .pipe(map(response => {
-        console.log(response)
+        // console.log(response)
         return response;
     }));
   }
