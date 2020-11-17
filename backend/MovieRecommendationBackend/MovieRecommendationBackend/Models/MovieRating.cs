@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace MovieRecommendationBackend.Models
 {
-    public class AuthenticationUser: RegisterUser
+    public class MovieRating
     {
-        public int ID { get; set; }
-        public string Token { get; set; }
+        public int MovieId { get; set; }
+        public int MovieScore { get; set; }
     }
 }

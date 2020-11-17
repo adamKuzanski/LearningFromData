@@ -31,6 +31,7 @@ namespace MovieRecommendationBackend
             services.AddControllers();
             services.AddSingleton<IDataService, DataService>();
             services.AddSingleton<IUserRepository, UserRepository>();
+            services.AddSingleton<IMovieRepository, MovieRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

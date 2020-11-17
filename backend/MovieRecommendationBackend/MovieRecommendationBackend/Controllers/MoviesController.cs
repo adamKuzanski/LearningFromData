@@ -29,17 +29,11 @@ namespace MovieRecommendationBackend.Controllers
             return movies;
         }
 
-        // GET api/<MoviesController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // POST api/movies/rateMovies
+        [HttpPost("RateMovies")]
+        public async Task<IActionResult> RateMoviesPost([FromBody] UserFinalFeedback userFinalFeedback)
         {
-            return "value";
-        }
-
-        // POST api/<MoviesController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
+            return new OkObjectResult(true);
         }
 
         // PUT api/<MoviesController>/5

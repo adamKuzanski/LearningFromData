@@ -78,6 +78,5 @@ namespace MovieRecommendationBackend.Data
                 return finalUser;
             }
         }
-
     }
 }

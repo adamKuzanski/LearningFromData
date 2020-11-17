@@ -14,11 +14,11 @@ namespace MovieRecommendationBackend.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private IUserRepository userRepository;
+        private IUserRepository _userRepository;
        
         public UserController(IUserRepository _userRepository)
         {
-            this.userRepository = _userRepository;
+            this._userRepository = _userRepository;
         }
 
 
@@ -47,7 +47,7 @@ namespace MovieRecommendationBackend.Controllers
             newUser.Password = registerUser.Password;
             newUser.Token = "fake-jwt-token";
 
-            var result = this.userRepository.AddNewUser(newUser);
+            var result = this._userRepository.AddNewUser(newUser);
 
             if(result.Exception != null)
             {
@@ -61,7 +61,7 @@ namespace MovieRecommendationBackend.Controllers
         [HttpPost("authenticate")] 
         public async Task<IActionResult> PostAuthenticate([FromBody] CredentialsUser credentialsUser)
         {
-            var result = this.userRepository.LoginUser(credentialsUser);
+            var result = this._userRepository.LoginUser(credentialsUser);
 
             if (result != null)
             {

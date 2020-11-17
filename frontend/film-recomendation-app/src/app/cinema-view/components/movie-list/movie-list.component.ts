@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn } from '@angular/forms';
-import { Feedback } from '../../models/feadback';
+import { User } from 'src/app/shared/models/user';
+import { MovieFeedback } from '../../models/movieFeedback';
 import { Movie } from '../../models/movie';
 import { MovieService } from '../../services/movie.service';
+import { UserMovieRating } from '../../models/userMovieRating';
 
 @Component({
   selector: 'app-movie-list',
@@ -10,10 +12,20 @@ import { MovieService } from '../../services/movie.service';
   styleUrls: ['./movie-list.component.scss']
 })
 
-export class MovieListComponent implements OnInit {
+export class MovieListComponent implements OnInit, OnChanges {
+  @Input() currentUser: User;
+  alertService: any;
+  loading: boolean;
+  isSubmited: boolean = false;
+
   constructor(
     private movieService: MovieService,
     private formBuilder: FormBuilder) { }
+  
+    ngOnChanges(changes: SimpleChanges): void {
+      console.log("Current User from child")
+      console.log(this.currentUser)
+  }
   
   arrayMovies: Movie[] = [];
 
@@ -49,17 +61,36 @@ export class MovieListComponent implements OnInit {
 
   public submitForm(answersArray) {
 
-    const feadbackArray: Feedback[] = [];
+    const feadbackArray: MovieFeedback[] = [];
     for (let i = 0; i < answersArray.length; i++){
       if (typeof answersArray[i] === 'number') {
         const movieDbId = this.arrayMovies[i].id;
         const movieRating = answersArray[i];
-        const feadback = new Feedback(movieDbId, movieRating);
+        const feadback = new MovieFeedback(movieDbId, movieRating);
         feadbackArray.push(feadback);
       }
     }
+    
+    const finalFeedback = new UserMovieRating(
+      this.currentUser,
+      feadbackArray
+    )
 
-    console.log(feadbackArray);
+    console.log(JSON.stringify(finalFeedback));
+
+
+    this.movieService.postUserRatings(finalFeedback)
+    .subscribe(
+        data => {
+          console.log(data)
+          this.isSubmited = true;
+        },
+        error => {
+            this.alertService.error(error);
+            this.loading = false;
+        });
+
+
     // console.log(JSON.stringify(feadbackArray));
   }
 

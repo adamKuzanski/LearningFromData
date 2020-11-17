@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { User } from '../../models/user';
 import { AlertService } from '../../services/alert.service';
 import { AuthenticationService } from '../../services/authentication.service';
 
@@ -59,7 +60,10 @@ export class LoginComponent implements OnInit {
         .pipe(first())
         .subscribe(
             data => {
-                this.router.navigate([this.returnUrl]);
+              const user = data.result
+              user.password = "Jeżeli sprawdzasz hasło to to już mnie obraża"
+              localStorage.setItem('user', JSON.stringify(user))
+              this.router.navigate([this.returnUrl]);
             },
             error => {
                 this.alertService.error(error);
