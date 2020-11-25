@@ -4,13 +4,19 @@
         <div class="movie-container">
             <app-movie [movie]="movie"></app-movie>
         </div>
+
+        <div class="resign-from-rating">
+            <button type="button" (click)="reset(i)" >
+                Reset position
+            </button>
+        </div>
+
         <div class="checkbox-container">
-            <input type="range" max="5" min="1" step="1" [formControlName]="i" class="checkbox-main">
+            <input id="{{'slider'+i}}" type="range" max="5" min="1" step="1" [formControlName]="i" [ngClass]="{'checkbox-main': form.value.demoArray[i] != false, 'checkbox-gray':form.value.demoArray[i] == false }">
             <div class="labels">
                 <label>Bad</label>
                 <label>Good</label>
             </div>
-            
         </div>
     
     </div>

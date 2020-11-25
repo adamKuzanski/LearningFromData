@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Movie } from '../../models/movie';
 
 @Component({
@@ -8,6 +9,7 @@ import { Movie } from '../../models/movie';
 })
 export class MovieComponent implements OnInit {
   @Input() movie: Movie;
+  public url = environment.TmdbPosterBaseUrl;
 
   constructor() {
 

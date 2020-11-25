@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  // apiUrl: 'https://localhost:44379/api'
-  apiUrl: 'https://dotnetmoviesbackend.azurewebsites.net/api'
+  apiUrl: 'https://localhost:44379/api',
+  TmdbPosterBaseUrl: 'https://image.tmdb.org/t/p/w500'
+  // apiUrl: 'https://dotnetmoviesbackend.azurewebsites.net/api'
 };
 
 /*

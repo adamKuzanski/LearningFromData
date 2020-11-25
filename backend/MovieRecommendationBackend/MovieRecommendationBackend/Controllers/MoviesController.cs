@@ -23,7 +23,7 @@ namespace MovieRecommendationBackend.Controllers
 
         // GET: api/movies/allMovies
         [HttpGet("AllMovies")]
-        public IEnumerable<Movie> Get()
+        public IEnumerable<MovieFullDetails> Get()
         {
             var movies = this.dataService.GetMoviesFromCsv();
             return movies;
@@ -34,18 +34,6 @@ namespace MovieRecommendationBackend.Controllers
         public async Task<IActionResult> RateMoviesPost([FromBody] UserFinalFeedback userFinalFeedback)
         {
             return new OkObjectResult(true);
-        }
-
-        // PUT api/<MoviesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<MoviesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

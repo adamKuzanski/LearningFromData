@@ -8,6 +8,6 @@ namespace MovieRecommendationBackend.Interfaces
 {
     public interface IDataService
     {
-        public List<Movie> GetMoviesFromCsv();
+        public List<MovieFullDetails> GetMoviesFromCsv();
     }
 }

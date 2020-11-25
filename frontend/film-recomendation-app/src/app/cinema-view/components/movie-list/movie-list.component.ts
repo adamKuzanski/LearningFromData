@@ -91,8 +91,11 @@ export class MovieListComponent implements OnInit, OnChanges {
         });
 
 
-    // console.log(JSON.stringify(feadbackArray));
+    console.log(JSON.stringify(feadbackArray));
   }
 
-
+  public reset(i) {
+    (<HTMLInputElement>document.getElementById("slider" + i)).value = String(3);
+    this.form.value.demoArray[i] = false;
+  }
 }
