@@ -1,0 +1,15 @@
+<div [formGroup]="form" class="form">
+
+    <div class="movie-container">
+        <div class="container"> 
+            <div class="images">
+                <img [src]="url + question.moviePosterUrl"/>
+            </div>
+            <div class="title">
+                <h4>{{question.movieTitle}}</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="errorMessage" *ngIf="!isValid"> {{question.movieTitle}} is required!</div>
+</div>
