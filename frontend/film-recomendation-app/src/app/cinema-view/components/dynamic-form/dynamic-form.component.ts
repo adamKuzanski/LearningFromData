@@ -21,10 +21,13 @@ export class DynamicFormComponent implements OnChanges {
       return
     }
     this.form = this.qcs.toFormGroup(this.questions);
+    console.log(this.form);
   }
 
   onSubmit() {
+    console.log(this.form.value)
     this.payLoad = JSON.stringify(this.form.getRawValue())
+    // this.payLoad = JSON.stringify(this.form.value)
   }
 
 }

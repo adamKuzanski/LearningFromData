@@ -21,6 +21,7 @@ export class QuestionBase<T> {
           this.movieID = options.movieID;
           this.movieTitle = options.movieTitle;
           this.moviePosterUrl = options.moviePosterUrl;
+          this.watched = options.watched;
           this.required = !!options.required;
           this.controlType = options.controlType || '';
           this.options = options.options || [];

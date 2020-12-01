@@ -31,7 +31,8 @@ export class QuestionService{
         movieID: movie.id,
         movieTitle: movie.title,
         moviePosterUrl: movie.poster_path,
-        watched: false
+        watched: true,
+        required: false
       })
       questions.push(movieQuest)
     }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Form, FormGroup } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { QuestionBase } from '../../questionaire-models/question-base';

@@ -13,8 +13,8 @@ export class QuestionControllService {
     const group: any = {};
 
     questions.forEach(question => {
-      group[question.movieID] = question.required ? new FormControl(question.movieRating || "", Validators.required)
-                                              : new FormControl(question.movieRating || "");
+      group[question.movieID] = question.required ? new FormControl(question.movieID || "", Validators.required)
+                                              : new FormControl(question.movieID || "");
     })
 
     return new FormGroup(group);
