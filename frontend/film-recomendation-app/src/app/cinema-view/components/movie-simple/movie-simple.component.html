@@ -21,5 +21,9 @@
         (input)="updateInput(ranger.value)"
         [disabled]="movieRating.watched"
         [ngClass]="{'checkbox-main': this.movieRating.watched == false, 'checkbox-gray': this.movieRating.watched != false}">
+        <div class="labels">
+            <label>Bad</label>
+            <label>Good</label>
+        </div>
     </div>
 </div>
