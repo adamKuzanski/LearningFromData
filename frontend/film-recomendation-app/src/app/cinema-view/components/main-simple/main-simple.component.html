@@ -1,0 +1,26 @@
+<button class="floaty" (click)="saveProgress()">
+    <div class="text-container">
+        <i class="fa fa-plus my-float">Save Progres</i>
+    </div>
+</button>
+
+<button class="floaty-submit" (click)="submit()">
+    <div class="text-container">
+        <i class="fa fa-plus my-float">Submit</i>
+    </div>
+</button>
+
+<div *ngIf="this.isMessage" 
+[ngClass]="{'floaty-message-good': this.isError == false, 'floaty-message-bad': this.isError == true}">
+    {{this.message}}
+</div>
+
+<div *ngIf="this.isError">
+    <div *ngFor="let error of this.errorMessage">
+        <span>{{error}}</span>
+    </div>
+</div>
+
+<div *ngFor="let movie of this.ratingList">
+    <app-movie-simple [movieRating]="movie" ></app-movie-simple>
+</div>

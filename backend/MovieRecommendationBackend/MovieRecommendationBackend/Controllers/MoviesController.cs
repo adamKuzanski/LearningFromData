@@ -15,10 +15,12 @@ namespace MovieRecommendationBackend.Controllers
     public class MoviesController : ControllerBase
     {
         private readonly IDataService dataService;
+        private readonly IMovieRepository movieRepository;
 
-        public MoviesController(IDataService _dataService)
+        public MoviesController(IDataService _dataService, IMovieRepository _movieRepository)
         {
             this.dataService = _dataService;
+            this.movieRepository = _movieRepository;
         }
 
         // GET: api/movies/allMovies
@@ -30,9 +32,10 @@ namespace MovieRecommendationBackend.Controllers
         }
 
         // POST api/movies/rateMovies
-        [HttpPost("RateMovies")]
+        [HttpPost("rateMovies")]
         public async Task<IActionResult> RateMoviesPost([FromBody] UserFinalFeedback userFinalFeedback)
         {
+            await this.movieRepository.AddUserRatings(userFinalFeedback);
             return new OkObjectResult(true);
         }
     }

@@ -32,6 +32,7 @@ export class MovieListComponent implements OnInit, OnChanges {
   form: FormGroup;
 
   ngOnInit(): void {
+
     this.form = this.formBuilder.group({
       demoArray: this.formBuilder.array([
         this.formBuilder.control('')
@@ -68,6 +69,7 @@ export class MovieListComponent implements OnInit, OnChanges {
         const movieRating = answersArray[i];
         const feadback = new MovieFeedback(movieDbId, movieRating);
         feadbackArray.push(feadback);
+        console.log(answersArray)
       }
     }
     
