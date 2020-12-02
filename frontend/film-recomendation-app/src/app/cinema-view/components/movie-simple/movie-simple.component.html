@@ -1,0 +1,25 @@
+<div class="container"> 
+
+    <div class="images">
+        <img [src]="url + this.movieRating.movie.poster_path"/>
+    </div>
+
+    <div class="title">
+        <h4>{{movieRating.movie.title}}</h4>
+    </div>
+
+    <div class="checkbox-input">
+            <input #checker type="checkbox" [defaultChecked]="movieRating.watched" (change)="this.toggleChange()" class="checkbox">
+            <label>Mark if you didn't watch that movie</label>
+    </div>
+
+    <div class="input-range">
+        <input 
+        [id]="movieRating.movie.id" 
+        #ranger 
+        type="range" min="1" max="5" value="3" 
+        (input)="updateInput(ranger.value)"
+        [disabled]="movieRating.watched"
+        [ngClass]="{'checkbox-main': this.movieRating.watched == false, 'checkbox-gray': this.movieRating.watched != false}">
+    </div>
+</div>

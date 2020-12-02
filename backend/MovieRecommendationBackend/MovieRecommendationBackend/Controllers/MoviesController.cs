@@ -30,7 +30,7 @@ namespace MovieRecommendationBackend.Controllers
         }
 
         // POST api/movies/rateMovies
-        [HttpPost("RateMovies")]
+        [HttpPost("rateMovies")]
         public async Task<IActionResult> RateMoviesPost([FromBody] UserFinalFeedback userFinalFeedback)
         {
             return new OkObjectResult(true);

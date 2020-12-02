@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DynamicFormQuestionComponent } from './components/dynamic-form-question/dynamic-form-question.component';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { RecommendationMainComponent } from './components/recommendation-main/recommendation-main.component';
+import { MainSimpleComponent } from './components/main-simple/main-simple.component';
+import { MovieSimpleComponent } from './components/movie-simple/movie-simple.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { RecommendationMainComponent } from './components/recommendation-main/re
     MovieListComponent,
     DynamicFormQuestionComponent,
     DynamicFormComponent,
-    RecommendationMainComponent
+    RecommendationMainComponent,
+    MainSimpleComponent,
+    MovieSimpleComponent
   ],
 })
 export class CinemaViewModule { }
