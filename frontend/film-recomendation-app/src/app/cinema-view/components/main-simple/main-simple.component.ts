@@ -59,7 +59,7 @@ export class MainSimpleComponent implements OnInit {
     if(this.isError) {
       this.isMessage = true;
       this.message = "Errors shown on top of the page"
-      // return;
+      return;
     }
 
     let feedbackArray: MovieFeedback[] = [];
@@ -97,7 +97,6 @@ export class MainSimpleComponent implements OnInit {
   public saveProgress() {
     console.log("Saving...")
     this.isMessage = true;
-    this.message = "Your progress updated sucessfully"
+    this.message = "Service currently unavailable"
   }
-
 }
