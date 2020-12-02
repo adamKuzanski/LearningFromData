@@ -6,7 +6,7 @@ using MovieRecommendationBackend.Models;
 
 namespace MovieRecommendationBackend.Interfaces
 {
-    interface IMovieRepository
+    public interface IMovieRepository
     {
         public Task<bool> AddUserRatings(UserFinalFeedback userFinalFeedback);
     }

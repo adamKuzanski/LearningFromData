@@ -8,7 +8,7 @@ namespace MovieRecommendationBackend.Models
     public class MovieRating
     {
         public int MovieId { get; set; }
-        public int MovieScore { get; set; }
+        public string MovieScore { get; set; }
         public bool MovieUnWatched { get; set; }
     }
 }

@@ -18,7 +18,7 @@ export class MovieSimpleComponent implements OnInit {
   }
 
   public updateInput(value: number): void {
-    this.movieRating.rating = value;
+    this.movieRating.rating = value.toString();
     // console.log("Movie Title: " + this.movieRating.movie.title + " Rating: " + this.movieRating.rating + " Watched: " + this.movieRating.watched)
   }
 

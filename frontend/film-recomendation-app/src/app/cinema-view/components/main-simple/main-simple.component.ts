@@ -41,7 +41,7 @@ export class MainSimpleComponent implements OnInit {
 
   public createRatingList(movies: Movie[]){
     for (let movie of movies) {
-      const movieRating = new MovieRating(movie, false, 0);
+      const movieRating = new MovieRating(movie, false, "0");
       this.ratingList.push(movieRating)
     }
   }
@@ -50,7 +50,7 @@ export class MainSimpleComponent implements OnInit {
     this.isError = false;
     this.errorMessage = [];
     for(let rating of this.ratingList) {
-      if((rating.rating == 0) && (rating.watched == false)) {
+      if((rating.rating == "0") && (rating.watched == false)) {
         this.isError = true;
         this.errorMessage.push("You did not rate movie: " + rating.movie.title)
       }
@@ -62,7 +62,7 @@ export class MainSimpleComponent implements OnInit {
       // return;
     }
 
-    let feedbackArray = [];
+    let feedbackArray: MovieFeedback[] = [];
     for(let rating of this.ratingList) {
       const feedback = new MovieFeedback(
         rating.movie.id,

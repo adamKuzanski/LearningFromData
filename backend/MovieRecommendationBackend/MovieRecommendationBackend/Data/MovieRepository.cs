@@ -22,26 +22,34 @@ namespace MovieRecommendationBackend.Data
 
         public async Task<bool> AddUserRatings(UserFinalFeedback userFinalFeedback)
         {
+            var user = userFinalFeedback.AuthenticationUser;
+            var feadbacks = userFinalFeedback.MovieRatings;
+
+
+
+
             using (SqlConnection sqlCon = new SqlConnection(_connectionString))
             {
                 Console.WriteLine(userFinalFeedback);
-                // sqlCon.Open();
-                // SqlCommand sqlCmd = new SqlCommand("UserAddOrEdit", sqlCon);
-                // sqlCmd.CommandType = System.Data.CommandType.StoredProcedure;
-                // sqlCmd.Parameters.AddWithValue("@ID", Convert.ToInt32(0));
-                // sqlCmd.Parameters.AddWithValue("@Firstname", registerUser.Firstname.Trim());
-                // sqlCmd.Parameters.AddWithValue("@Lastname", registerUser.Lastname.Trim());
-                // sqlCmd.Parameters.AddWithValue("@Username", registerUser.Username.Trim());
-                // sqlCmd.Parameters.AddWithValue("@Password", registerUser.Password.Trim());
-                // sqlCmd.Parameters.AddWithValue("@Token", registerUser.Token.Trim());
-                // var rowsAffected = sqlCmd.ExecuteNonQuery();
-                //
-                // if (rowsAffected > 0)
-                //     return true;
-                // else
-                //     return false;
-                return true;
+                sqlCon.Open();
+
+                foreach (var feedback in feadbacks)
+                {
+                    SqlCommand sqlCmd = new SqlCommand("AddUserMovieRating", sqlCon);
+                    sqlCmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    sqlCmd.Parameters.AddWithValue("@ID", Convert.ToInt32(0));
+                    sqlCmd.Parameters.AddWithValue("@UserId", user.ID);
+                    sqlCmd.Parameters.AddWithValue("@MovieId", feedback.MovieId);
+                    sqlCmd.Parameters.AddWithValue("@Rating", Convert.ToInt32(feedback.MovieScore));
+                    sqlCmd.Parameters.AddWithValue("@MovieUnwatched", Convert.ToInt32(feedback.MovieUnWatched));
+                    var rowsAffected = sqlCmd.ExecuteNonQuery();
+
+                    if (rowsAffected <= 0)
+                        return false;
+                }
             }
+
+            return true;
         }
     }
 }
