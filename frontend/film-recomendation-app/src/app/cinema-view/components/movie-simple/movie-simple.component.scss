@@ -1,9 +1,9 @@
 img {
-    max-width: 100px;
+    max-width: 150px;
 }
 
 .images {
-    width: 110px;
+    width: 150px;
     align-self: center;
 }
 
@@ -13,8 +13,14 @@ img {
     vertical-align: middle;
 }
 
+.checkbox {
+    width: 30px;
+    height: 30px;
+}
+
 .checkbox-input{
-    width: 10%;
+    width: 20%;
+    margin-right: 30px;
     display: inline-block;
     flex-direction: row;
     align-self: center;
